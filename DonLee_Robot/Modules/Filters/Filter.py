@@ -202,14 +202,14 @@ async def auto_filter(bot, update):
 
     if len(results) == 0 : # double check
         buttons = [[
-                 InlineKeyboardButton("Instructions 📑",url=f"https://www.google.com/search?q=<code>{query}</code>")
+                 InlineKeyboardButton("Instructions 📑",url=f"https://www.google.com/search?q={query}")
                  ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await bot.send_message(
         chat_id=update.chat.id,
         text=f"<b>Sorry I couldn't find anything for <code>{the_query}</code> 🤧\nTry Reading the instructions below</b> 👇🏽",
         reply_markup=reply_markup,
-        parse_mode="html",
+        parse_mode="markdown",
         reply_to_message_id=update.message_id)
         return
     
